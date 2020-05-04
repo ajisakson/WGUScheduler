@@ -1,5 +1,6 @@
 package com.example.wguscheduler.model;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -7,8 +8,9 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "notes")
 public class Note {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id;
+    @ColumnInfo
     private String contents;
 
     @Ignore
@@ -16,12 +18,12 @@ public class Note {
 
     }
 
-    @Ignore
     public Note(int id, String contents){
         this.id = id;
         this.contents = contents;
     }
 
+    @Ignore
     public Note(String contents){
         this.contents = contents;
     }

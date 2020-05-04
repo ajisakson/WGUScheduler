@@ -1,5 +1,6 @@
 package com.example.wguscheduler.model;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -11,15 +12,22 @@ import java.util.List;
 @Entity(tableName = "courses")
 public class Course {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id;
+    @ColumnInfo
     private String title;
+    @ColumnInfo
     private Date courseStart;
+    @ColumnInfo
     private Date courseEnd;
     // course status variable (in progress, completed, dropped, planned)
+    @ColumnInfo
     private int status;
+    @ColumnInfo
     private String mentorName;
+    @ColumnInfo
     private String mentorPhone;
+    @ColumnInfo
     private String mentorEmail;
     // assessments ArrayList
     // course notes ArrayList
@@ -31,10 +39,9 @@ public class Course {
 
     }
 
-    @Ignore
-    public Course(int courseId, String courseTitle, Date courseStart, Date courseEnd, int status, String mentorName, String mentorPhone, String mentorEmail){
-        this.id = courseId;
-        this.title = courseTitle;
+    public Course(int id, String title, Date courseStart, Date courseEnd, int status, String mentorName, String mentorPhone, String mentorEmail){
+        this.id = id;
+        this.title = title;
         this.courseStart = courseStart;
         this.courseEnd = courseEnd;
         this.status = status;
@@ -43,26 +50,27 @@ public class Course {
         this.mentorPhone = mentorPhone;
     }
 
+    @Ignore
     public Course(String courseTitle, int status, String mentorName) {
         this.title = courseTitle;
         this.status = status;
         this.mentorName = mentorName;
     }
 
-    public int getCourseId() {
+    public int getId() {
         return id;
     }
 
-    public void setCourseId(int courseId) {
-        this.id = courseId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getCourseTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setCourseTitle(String courseTitle) {
-        this.title = courseTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Date getCourseStart() {

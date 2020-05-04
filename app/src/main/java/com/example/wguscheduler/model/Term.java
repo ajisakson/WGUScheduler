@@ -1,5 +1,6 @@
 package com.example.wguscheduler.model;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -14,9 +15,11 @@ public class Term {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-
+    @ColumnInfo
     private String title;
+    @ColumnInfo
     private Date startDate;
+    @ColumnInfo
     private Date endDate;
     // ArrayList of courses within the term
 
@@ -25,7 +28,6 @@ public class Term {
 
     }
 
-    @Ignore
     public Term(int id, String title, Date startDate, Date endDate){
         this.id = id;
         this.title = title;
@@ -33,6 +35,7 @@ public class Term {
         this.endDate = endDate;
     }
 
+    @Ignore
     public Term(String title, Date startDate, Date endDate){
         this.title = title;
         this.startDate = startDate;

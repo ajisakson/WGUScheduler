@@ -12,7 +12,8 @@ public class Assessment {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-
+    @ColumnInfo
+    private int courseId;
     @ColumnInfo
     private String name;
     @ColumnInfo
@@ -27,8 +28,9 @@ public class Assessment {
 
     }
 
-    public Assessment(int id, String name, int status, int type, Date dueDate) {
+    public Assessment(int id, int courseId, String name, int status, int type, Date dueDate) {
         this.id = id;
+        this.courseId = id;
         this.name = name;
         this.status = status;
         this.type = type;
@@ -36,8 +38,9 @@ public class Assessment {
     }
 
     @Ignore
-    public Assessment(String name, int status, int type) {
+    public Assessment(String name, int courseId, int status, int type) {
         this.name = name;
+        this.courseId = courseId;
         this.status = status;
         this.type = type;
     }
@@ -48,6 +51,14 @@ public class Assessment {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
     public String getName() {

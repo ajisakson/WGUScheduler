@@ -15,6 +15,8 @@ public class Course {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @ColumnInfo
+    private int termId;
+    @ColumnInfo
     private String title;
     @ColumnInfo
     private Date courseStart;
@@ -39,8 +41,9 @@ public class Course {
 
     }
 
-    public Course(int id, String title, Date courseStart, Date courseEnd, int status, String mentorName, String mentorPhone, String mentorEmail){
+    public Course(int id, int termId, String title, Date courseStart, Date courseEnd, int status, String mentorName, String mentorPhone, String mentorEmail){
         this.id = id;
+        this.termId = termId;
         this.title = title;
         this.courseStart = courseStart;
         this.courseEnd = courseEnd;
@@ -51,8 +54,9 @@ public class Course {
     }
 
     @Ignore
-    public Course(String courseTitle, int status, String mentorName) {
+    public Course(String courseTitle, int termId, int status, String mentorName) {
         this.title = courseTitle;
+        this.termId = termId;
         this.status = status;
         this.mentorName = mentorName;
     }
@@ -63,6 +67,14 @@ public class Course {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getTermId(){
+        return termId;
+    }
+
+    public void setTermId(int termId){
+        this.termId = termId;
     }
 
     public String getTitle() {

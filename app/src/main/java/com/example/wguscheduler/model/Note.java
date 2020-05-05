@@ -11,6 +11,8 @@ public class Note {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @ColumnInfo
+    private int courseId;
+    @ColumnInfo
     private String contents;
 
     @Ignore
@@ -18,13 +20,15 @@ public class Note {
 
     }
 
-    public Note(int id, String contents){
+    public Note(int id, int courseId, String contents){
         this.id = id;
+        this.courseId = courseId;
         this.contents = contents;
     }
 
     @Ignore
-    public Note(String contents){
+    public Note(int courseId, String contents){
+        this.courseId = courseId;
         this.contents = contents;
     }
 
@@ -34,6 +38,14 @@ public class Note {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
     public String getContents() {

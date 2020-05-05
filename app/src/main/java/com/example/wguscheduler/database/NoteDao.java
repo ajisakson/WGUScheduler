@@ -28,6 +28,9 @@ public interface NoteDao {
     @Query("SELECT * FROM notes ORDER BY id DESC")
     LiveData<List<Note>> getAll();
 
+    @Query("SELECT * FROM notes WHERE courseId = :courseId")
+    LiveData<List<Note>> getNotesByCourse(final int courseId);
+
     @Query("DELETE FROM notes")
     int deleteAll();
 

@@ -28,6 +28,9 @@ public interface AssessmentDao {
     @Query("SELECT * FROM assessments ORDER BY dueDate DESC")
     LiveData<List<Assessment>> getAll();
 
+    @Query("SELECT * FROM assessments WHERE courseId = :courseId")
+    LiveData<List<Assessment>> getAssessmentsByCourse(final int courseId);
+
     @Query("DELETE FROM assessments")
     int deleteAll();
 

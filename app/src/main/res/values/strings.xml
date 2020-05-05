@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">C196_Austin_Isakson</string>
+    <string name="app_name">WGU Scheduler</string>
     <string name="title_activity_edit_term">EditTermActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -90,5 +90,6 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="action_settings">Settings</string>
+    <string name="action_add_data">Add Sample Data</string>
+    <string name="delete_all">delete_all</string>
 </resources>
